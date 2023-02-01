@@ -1,17 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
+﻿using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
 using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace PS_WPF_Modul8
 {
@@ -23,6 +12,33 @@ namespace PS_WPF_Modul8
         public MainWindow()
         {
             InitializeComponent();
+        }
+    }
+
+    public class MyStackPanel : StackPanel
+    {
+        public static readonly DependencyProperty IsBlueProperty = DependencyProperty.Register(
+            "IsBlue", typeof(bool), typeof(MyStackPanel), 
+            new FrameworkPropertyMetadata(false,new PropertyChangedCallback(IsBluePropertyChanged)));
+
+        public bool IsBlue
+        {
+            get { return (bool)GetValue(IsBlueProperty); }
+            set{ SetValue(IsBlueProperty, value); }   
+        }
+
+        static void IsBluePropertyChanged(DependencyObject sender, DependencyPropertyChangedEventArgs args)
+        {
+            MyStackPanel stackpanel = sender as MyStackPanel;
+
+            if (stackpanel.IsBlue == true)
+            {
+                stackpanel.Background = new SolidColorBrush(Colors.Blue);
+            }
+            else
+            {
+                stackpanel.Background = new SolidColorBrush(Colors.White);
+            }
         }
     }
 }

@@ -5,8 +5,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PS_WPF_Modul8"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
-
-    </Grid>
+        Title="MainWindow" Height="200" Width="240">
+    
+    <local:MyStackPanel IsBlue="True">
+        <Button Content="Button1" />
+    </local:MyStackPanel>
 </Window>
